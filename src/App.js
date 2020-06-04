@@ -1,9 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { useDrag } from 'react-dnd'
+import Reward from './reward';
+import Category from './category';
 import './App.css';
 
+export const moveReward = function(categoryIdx){
+
+}
+
 function App() {
+
 
 	const rewards = ["R1", "R2", "R3", "R4", "R5"];
 
@@ -15,9 +22,9 @@ function App() {
 				<div className="rewards">
 					<span className="reward-heading">Rewards</span>
 					<div className="reward-container">
-						{rewards.map((reward, idx) => {
+						{rewards.map((title, idx) => {
 							return (
-								<div className="reward-item" key={idx}>{reward}</div>
+								<Reward key={idx} title={title}/>
 							)
 						})}
 					</div>
@@ -25,14 +32,9 @@ function App() {
 				<div className="categories">
 					<span className="category-heading">Categories</span>
 					<div className="category-container">
-						{categories.map((category, idx) => {
+						{categories.map((title, idx) => {
 							return (
-								<div className="category-item" key={idx}>
-									<div className="category-name">{category}</div>
-									<div className="category-lane">
-
-									</div>
-								</div>
+								<Category key={idx} title={title} index={idx}/>
 							)
 						})}
 					</div>
