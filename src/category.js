@@ -9,7 +9,7 @@ function Category({title, index, renderRewards, createReward, moveReward}){
         //accept specifies which types it will be droppable for
         accept: ItemTypes.REWARD,
         drop: (item, monitor) => {
-            createReward(index, item)
+            item.catID ? moveReward(index, item) : createReward(index, item)
         }
     })
 

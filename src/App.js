@@ -56,14 +56,13 @@ function App() {
 			}
 			currRewards.push(newReward);
 			setCreatedRewards(currRewards)
-			// renderRewards(categoryIdx)
-			console.log(currRewards)
+
 		}
 
 	}
 
 	function moveReward(categoryIdx, item) {
-
+		console.log("here")
 
 	}
 
