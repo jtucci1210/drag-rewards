@@ -19,7 +19,6 @@ function App() {
 	
 	const [createdRewards, setCreatedRewards] = useState([])
 
-
 	function renderCategories(){
 		return (
 			categories.map((title, idx) => {
@@ -37,7 +36,7 @@ function App() {
 		return createdRewards.map((reward, idx) => {
 			if(reward.categoryID === catID){
 				return (
-					<Reward title={reward.title} idx={reward.idx}></Reward>
+					<Reward key={idx} title={reward.title} idx={reward.idx}/>
 				)
 			}
 		})
@@ -46,7 +45,20 @@ function App() {
 
 	function createReward(categoryIdx, item) {
 		let currRewards = Object.assign([], createdRewards);
-		
+		let rewardID = item.idx;
+		if(!currRewards.some(reward => {
+			return reward.idx === rewardID && reward.catID === categoryIdx
+		})) {
+			let newReward = {
+				title: item.title,
+				idx: item.idx,
+				catID: categoryIdx
+			}
+			currRewards.push(newReward);
+			setCreatedRewards(currRewards)
+			// renderRewards(categoryIdx)
+			console.log(currRewards)
+		}
 
 	}
 
