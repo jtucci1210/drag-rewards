@@ -6,6 +6,7 @@ import Category from './category';
 import './App.css';
 
 export const moveReward = function(categoryIdx){
+	console.log(categoryIdx)
 
 }
 

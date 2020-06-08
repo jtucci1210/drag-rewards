@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDrop } from 'react-dnd';
-import ItemTypes from './reward';
-import {moveReward} from './App';
+import { useDrag, useDrop } from 'react-dnd';
+import { ItemTypes } from './reward';
+import { moveReward } from './App';
 
 function Category({title, index}){
 
