@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDrop } from 'react-dnd';
-import { ItemTypes } from './reward';
+import Reward, { ItemTypes } from './reward';
 
 function Category({title, index, renderRewards, createReward, moveReward}){
 

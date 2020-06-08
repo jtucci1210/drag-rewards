@@ -66,6 +66,14 @@ function App() {
 
 	}
 
+	const deleteReward = () => {
+		let currRewards = Object.assign([], createdRewards);
+		let deleteIdx = currRewards.indexOf(this);
+		currRewards.splice(deleteIdx, 1);
+		setCreatedRewards(currRewards);
+
+	}
+
 	return (
 		<div className="App">
 			<div className="grid">
