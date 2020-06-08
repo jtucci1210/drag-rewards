@@ -36,7 +36,7 @@ function App() {
 		return createdRewards.map((reward, idx) => {
 			if(reward.categoryID === catID){
 				return (
-					<Reward key={idx} title={reward.title} idx={reward.idx}/>
+					<Reward key={idx} title={reward.title} idx={reward.idx} deleteReward={deleteReward}/>
 				)
 			}
 		})
