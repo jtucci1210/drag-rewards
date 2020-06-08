@@ -1,20 +1,21 @@
 import React from 'react';
-import { useDrag, useDrop } from 'react-dnd';
+import { useDrop } from 'react-dnd';
 import { ItemTypes } from './reward';
-import { moveReward } from './App';
 
-function Category({title, index}){
+function Category({title, index, renderRewards, createReward, moveReward}){
 
-    const [, drop] = useDrop({
+    const [collectedProps, drop] = useDrop({
         accept: ItemTypes.REWARD,
-        drop: () => moveReward(index)
+        drop: (item, monitor) => {
+            createReward(index, item)
+        }
     })
 
     return(
         <div className="category-item">
             <div className="category-name">{title}</div>
-            <div className="category-lane">
-
+            <div className="category-lane" ref={drop}>
+                {renderRewards(index)}
             </div>
         </div>
     )

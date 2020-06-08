@@ -5,14 +5,16 @@ export const ItemTypes = {
     REWARD: 'reward'
 }
 
-function Reward({ title }){
+function Reward({ title, idx }){
 
     //first obj is a props obj w/ properties collected
     //second is a ref function to attach DOM ele to React DND
     const [{ isDragging }, drag] = useDrag({
         item: { type: ItemTypes.REWARD },
-        collect: (monitor) => ({
-            isDragging: !!monitor.isDragging()
+        begin: (monitor) => ({
+            type: ItemTypes.REWARD,
+            idx: idx,
+            title: title
         })
     })
 
