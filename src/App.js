@@ -16,6 +16,7 @@ function App() {
 	const categories = ["C1", "C2", "C3", "C4", "C5"];
 	
 	const [createdRewards, setCreatedRewards] = useState([])
+	const [numRewards, setNumRewards] = useState(0)
 
 	function renderCategories(){
 		return (
@@ -32,9 +33,10 @@ function App() {
 	function renderRewards(catID){
 		
 		return createdRewards.map((reward, idx) => {
+			
 			if(reward.catID === catID){
 				return (
-					<Reward key={idx} title={reward.title} idx={reward.idx} deleteReward={deleteReward}/>
+					<Reward key={idx} title={reward.title} createID={reward.createID} idx={reward.idx} deleteReward={deleteReward}/>
 				)
 			}
 		})
@@ -44,17 +46,20 @@ function App() {
 	function createReward(categoryIdx, item) {
 		let currRewards = Object.assign([], createdRewards);
 		let rewardID = item.idx;
+
 		if(!currRewards.some(reward => {
 			return reward.idx === rewardID && reward.catID === categoryIdx
 		})) {
 			let newReward = {
 				title: item.title,
 				idx: item.idx,
+				createID: numRewards + 1,
 				catID: categoryIdx
 			}
+
 			currRewards.push(newReward);
 			setCreatedRewards(currRewards)
-			console.log(currRewards)
+			setNumRewards(numRewards + 1)
 		}
 
 	}
@@ -64,12 +69,11 @@ function App() {
 
 	}
 
-	const deleteReward = () => {
+	const deleteReward = (createID) => {
 		let currRewards = Object.assign([], createdRewards);
-		let deleteIdx = currRewards.indexOf(this);
+		let deleteIdx = currRewards.find(reward => reward.createID === createID)
 		currRewards.splice(deleteIdx, 1);
 		setCreatedRewards(currRewards);
-
 	}
 
 	return (

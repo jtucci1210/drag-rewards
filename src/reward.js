@@ -5,7 +5,7 @@ export const ItemTypes = {
     REWARD: 'reward'
 }
 
-function Reward({ title, idx, deleteReward }){
+function Reward({ title, idx, deleteReward, createID }){
 
     //first obj is a props obj w/ properties such as isDragging
     //second is a ref function to attach DOM ele to React DND
@@ -33,7 +33,7 @@ function Reward({ title, idx, deleteReward }){
             }}>
             {title}
             {deleteReward
-            ? <span className="delete-button" onClick={() => deleteReward()}>X</span>
+            ? <span className="delete-button" onClick={() => deleteReward(createID)}>X</span>
             : null}
         </div>
 
