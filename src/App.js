@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import { useDrag } from 'react-dnd'
 import Reward from './reward';
 import Category from './category';
 import './App.css';
@@ -32,9 +30,9 @@ function App() {
 	}
 
 	function renderRewards(catID){
-
+		
 		return createdRewards.map((reward, idx) => {
-			if(reward.categoryID === catID){
+			if(reward.catID === catID){
 				return (
 					<Reward key={idx} title={reward.title} idx={reward.idx} deleteReward={deleteReward}/>
 				)
@@ -56,7 +54,7 @@ function App() {
 			}
 			currRewards.push(newReward);
 			setCreatedRewards(currRewards)
-
+			console.log(currRewards)
 		}
 
 	}
