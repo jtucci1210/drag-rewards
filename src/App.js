@@ -23,7 +23,7 @@ function App() {
 			categories.map((title, idx) => {
 				return (
 					<Category key={idx} title={title} index={idx} 
-					renderRewards={renderRewards} moveReward={moveReward} 
+					renderRewards={renderRewards} updateReward={updateReward} 
 					createReward={createReward}/>
 				)
 			})
@@ -33,10 +33,11 @@ function App() {
 	function renderRewards(catID){
 		
 		return createdRewards.map((reward, idx) => {
-			
+
 			if(reward.catID === catID){
 				return (
-					<Reward key={idx} title={reward.title} createID={reward.createID} idx={reward.idx} deleteReward={deleteReward}/>
+					<Reward key={idx} title={reward.title} createID={reward.createID}
+					idx={reward.idx} catID={catID} updateReward={updateReward}/>
 				)
 			}
 		})
@@ -64,16 +65,28 @@ function App() {
 
 	}
 
-	function moveReward(categoryIdx, item) {
-		console.log("here")
-
-	}
-
-	const deleteReward = (createID) => {
+	function updateReward(createID, categoryIdx) {
 		let currRewards = Object.assign([], createdRewards);
-		let deleteIdx = currRewards.find(reward => reward.createID === createID)
-		currRewards.splice(deleteIdx, 1);
+		let rewardIdx = currRewards.findIndex(reward => reward.createID === createID)
+
+		if(categoryIdx !== undefined) {
+			let reward = currRewards[rewardIdx];
+			if (!currRewards.some(item => {
+				return item.idx === reward.idx && item.catID === categoryIdx
+			})) {
+				//move option
+				console.log(reward)
+				reward.catID = categoryIdx;
+			} else {
+				//already in that category
+				return;
+			}
+		} else {
+			//delete option
+			currRewards.splice(rewardIdx, 1);
+		}
 		setCreatedRewards(currRewards);
+
 	}
 
 	return (

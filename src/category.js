@@ -2,14 +2,15 @@ import React from 'react';
 import { useDrop } from 'react-dnd';
 import Reward, { ItemTypes } from './reward';
 
-function Category({title, index, renderRewards, createReward, moveReward}){
+function Category({title, index, renderRewards, createReward, updateReward}){
 
     //collectedProps are the properties avail if needed, drop is ref for the DOM obj
     const [collectedProps, drop] = useDrop({
         //accept specifies which types it will be droppable for
         accept: ItemTypes.REWARD,
         drop: (item, monitor) => {
-            item.catID ? moveReward(index, item) : createReward(index, item)
+            console.log(item)
+            item.catID !== undefined ? updateReward(item.createID, index) : createReward(index, item)
         }
     })
 

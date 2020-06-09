@@ -5,7 +5,7 @@ export const ItemTypes = {
     REWARD: 'reward'
 }
 
-function Reward({ title, idx, deleteReward, createID }){
+function Reward({ title, idx, updateReward, createID, catID }){
 
     //first obj is a props obj w/ properties such as isDragging
     //second is a ref function to attach DOM ele to React DND
@@ -17,6 +17,8 @@ function Reward({ title, idx, deleteReward, createID }){
             type: ItemTypes.REWARD,
             idx: idx,
             title: title,
+            catID: catID,
+            createID: createID
         }),
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging()
@@ -32,8 +34,8 @@ function Reward({ title, idx, deleteReward, createID }){
                 cursor: 'move',
             }}>
             {title}
-            {deleteReward
-            ? <span className="delete-button" onClick={() => deleteReward(createID)}>X</span>
+            {updateReward
+            ? <span className="delete-button" onClick={() => updateReward(createID)}>X</span>
             : null}
         </div>
 
