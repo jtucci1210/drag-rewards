@@ -40,7 +40,7 @@ function App() {
 	})
 
 	useEffect(() => {
-		//must serialize(turn into a string) the object or array for storage
+		//must serialize(turn into a string) the object or array for storage, toString method also works
 		window.localStorage.setItem("savedRewards", JSON.stringify(createdRewards))
 		window.localStorage.setItem("numberReward", JSON.stringify(numRewards))
 	}, [createdRewards, numRewards]); //useEffect will happen with any change of these two variables
