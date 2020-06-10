@@ -11,4 +11,4 @@ Practice implementing drag and drop capabilities with simple html elements (Rewa
 
 ## Live Link
 
-()
+(https://jtucci1210.github.io/drag-rewards/)
