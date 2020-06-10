@@ -12,7 +12,7 @@ function Reward({ title, idx, updateReward, createID, catID }){
     const [{ isDragging }, drag] = useDrag({
         //item is a required arg, type is what the drop function recognizes
         item: { type: ItemTypes.REWARD },
-        //begin allows you to specify what info is returned to the drop fxn
+        //begin allows you to specify what info is returned to the drop fxn, overwrites the info from item
         begin: (monitor) => ({
             type: ItemTypes.REWARD,
             idx: idx,

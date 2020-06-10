@@ -9,7 +9,7 @@ function Category({title, index, renderRewards, createReward, updateReward}){
         //accept specifies which types it will be droppable for
         accept: ItemTypes.REWARD,
         drop: (item, monitor) => {
-            console.log(item)
+            //will only have a catID if it has already been placed in one of the swim lanes
             item.catID !== undefined ? updateReward(item.createID, index) : createReward(index, item)
         }
     })

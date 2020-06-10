@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Reward from './reward';
 import Category from './category';
 import './App.css';
@@ -15,8 +15,36 @@ function App() {
 	const rewards = ["R1", "R2", "R3", "R4", "R5"];
 	const categories = ["C1", "C2", "C3", "C4", "C5"];
 	
-	const [createdRewards, setCreatedRewards] = useState([])
-	const [numRewards, setNumRewards] = useState(0)
+	const [createdRewards, setCreatedRewards] = useState(() => {
+		let saved = window.localStorage.getItem("savedRewards") || [];
+		if (saved.length !== 0) {
+			try{ //good practice to wrap in a tray catch for error viewing
+				//deserialize(turn from string back into object)
+				saved = JSON.parse(saved)
+			} catch(err){
+				console.log(err)
+			}
+		}
+		return saved;
+	})
+	const [numRewards, setNumRewards] = useState(() => {
+		let saved = window.localStorage.getItem("numberRewards") || 0;
+		if(saved !== 0){
+			try{
+				saved = JSON.parse(saved);
+			} catch(err) {
+				console.log(err)
+			}
+		}
+		return saved;
+	})
+
+	useEffect(() => {
+		//must serialize(turn into a string) the object or array for storage
+		window.localStorage.setItem("savedRewards", JSON.stringify(createdRewards))
+		window.localStorage.setItem("numberReward", JSON.stringify(numRewards))
+	}, [createdRewards, numRewards]); //useEffect will happen with any change of these two variables
+
 
 	function renderCategories(){
 		return (
