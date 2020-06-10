@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/drag-rewards/static/css/main.cfeaefa9.chunk.css",
+    "main.js": "/drag-rewards/static/js/main.615e9d33.chunk.js",
+    "main.js.map": "/drag-rewards/static/js/main.615e9d33.chunk.js.map",
+    "runtime-main.js": "/drag-rewards/static/js/runtime-main.ff2c9a94.js",
+    "runtime-main.js.map": "/drag-rewards/static/js/runtime-main.ff2c9a94.js.map",
+    "static/js/2.4cd395e7.chunk.js": "/drag-rewards/static/js/2.4cd395e7.chunk.js",
+    "static/js/2.4cd395e7.chunk.js.map": "/drag-rewards/static/js/2.4cd395e7.chunk.js.map",
+    "index.html": "/drag-rewards/index.html",
+    "precache-manifest.31801538183498fe365306465c3edbf1.js": "/drag-rewards/precache-manifest.31801538183498fe365306465c3edbf1.js",
+    "service-worker.js": "/drag-rewards/service-worker.js",
+    "static/css/main.cfeaefa9.chunk.css.map": "/drag-rewards/static/css/main.cfeaefa9.chunk.css.map",
+    "static/js/2.4cd395e7.chunk.js.LICENSE.txt": "/drag-rewards/static/js/2.4cd395e7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ff2c9a94.js",
+    "static/js/2.4cd395e7.chunk.js",
+    "static/css/main.cfeaefa9.chunk.css",
+    "static/js/main.615e9d33.chunk.js"
+  ]
+}
